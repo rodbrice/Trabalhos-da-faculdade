@@ -13,7 +13,7 @@ const Footer = () => {
     }}>
       <div className="container">
         <p style={{ margin: 0 }}>
-          2025 <strong>Brice Roduit</strong>
+          <strong>Brice Roduit</strong>
         </p>
       </div>
     </footer>
