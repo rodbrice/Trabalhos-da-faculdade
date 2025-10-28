@@ -99,6 +99,16 @@ const HomePage = () => {
           <p>
             Esta aplicação contém os 16 exercícios práticos para o TP_1_DR1 de Fundamentos de React.
           </p>
+          <p>
+            <strong>Código fonte:</strong> <a 
+              href="https://github.com/rodbrice/Trabalhos-da-faculdade/tree/master/Desenvolvimento_Front-end_com_Frameworks/Fundamentos_React" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: '#007bff', textDecoration: 'none' }}
+            >
+              Ver repositório no GitHub
+            </a>
+          </p>
         </div>
 
         <div className="exercise-grid">
