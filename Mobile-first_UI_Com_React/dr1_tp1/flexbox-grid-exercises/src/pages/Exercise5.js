@@ -1,26 +1,28 @@
 import React from 'react';
-import BackButton from '../BackButton';
-import './ExerciseStyles.css';
+import BackButton from '../components/BackButton';
+import Footer from '../components/Footer';
+import '../styles/ExerciseStyles.css';
 
-function Exercise2() {
+function Exercise5() {
   return (
     <div className="exercise-container">
       <div className="exercise-header">
-        <h1>Exercício 2: Flex Direction Column-Reverse</h1>
+        <h1>Exercício 5: Flex-basis</h1>
         <p className="exercise-description">
-          Container flexível que distribui quatro itens em uma coluna vertical (column) 
-          e inverte a ordem dos itens usando flex-direction: column-reverse
+          Container flexível com cinco itens onde o segundo item tem uma base (flex-basis) 
+          de 200px, enquanto os outros itens têm bases automáticas
         </p>
         <BackButton />
       </div>
 
       <div className="demo-area">
         <div className="demo-title">Resultado:</div>
-        <div className="flex-container-2">
+        <div className="flex-container-5">
           <div className="flex-item">Item 1</div>
-          <div className="flex-item">Item 2</div>
+          <div className="flex-item">Item 2 (200px)</div>
           <div className="flex-item">Item 3</div>
           <div className="flex-item">Item 4</div>
+          <div className="flex-item">Item 5</div>
         </div>
       </div>
 
@@ -29,9 +31,11 @@ function Exercise2() {
         <pre>
 {`.flex-container {
   display: flex;
-  flex-direction: column-reverse;
   gap: 15px;
-  height: 300px;
+}
+
+.item-2 {
+  flex-basis: 200px;
 }`}
         </pre>
       </div>
@@ -39,4 +43,4 @@ function Exercise2() {
   );
 }
 
-export default Exercise2;
+export default Exercise5;

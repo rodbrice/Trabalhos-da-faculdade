@@ -1,25 +1,28 @@
 import React from 'react';
-import BackButton from '../BackButton';
-import './ExerciseStyles.css';
+import BackButton from '../components/BackButton';
+import Footer from '../components/Footer';
+import '../styles/ExerciseStyles.css';
 
-function Exercise7() {
+function Exercise9() {
   return (
     <div className="exercise-container">
       <div className="exercise-header">
-        <h1>Exercício 7: Alinhamento Flex-end</h1>
+        <h1>Exercício 9: Space-between</h1>
         <p className="exercise-description">
-          Container flexível com quatro itens alinhados ao final do container (flex-end)
+          Container flexível com seis itens e distribuição de espaço igual entre os itens (space-between)
         </p>
         <BackButton />
       </div>
 
       <div className="demo-area">
         <div className="demo-title">Resultado:</div>
-        <div className="flex-container-7">
+        <div className="flex-container-9">
           <div className="flex-item small-item">Item 1</div>
           <div className="flex-item small-item">Item 2</div>
           <div className="flex-item small-item">Item 3</div>
           <div className="flex-item small-item">Item 4</div>
+          <div className="flex-item small-item">Item 5</div>
+          <div className="flex-item small-item">Item 6</div>
         </div>
       </div>
 
@@ -28,8 +31,7 @@ function Exercise7() {
         <pre>
 {`.flex-container {
   display: flex;
-  justify-content: flex-end;
-  gap: 15px;
+  justify-content: space-between;
 }`}
         </pre>
       </div>
@@ -37,4 +39,4 @@ function Exercise7() {
   );
 }
 
-export default Exercise7;
+export default Exercise9;

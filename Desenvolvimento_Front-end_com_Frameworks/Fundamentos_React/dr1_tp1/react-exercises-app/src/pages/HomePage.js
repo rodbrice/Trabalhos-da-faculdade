@@ -89,7 +89,7 @@ const HomePage = () => {
     <div>
       <div className="page-header">
         <div className="container">
-          <h1>Exercícios React - DR1_TP1</h1>
+          <h1>Exercícios React - DR2_TP1</h1>
         </div>
       </div>
       
@@ -97,7 +97,7 @@ const HomePage = () => {
         <div className="content-box">
           <h2>Sobre este projeto</h2>
           <p>
-            Esta aplicação contém os 16 exercícios práticos para o TP_1_DR1 de Fundamentos de React.
+            Esta aplicação contém os 16 exercícios práticos para o TP_01 de Fundamentos de React.
           </p>
           <p>
             <strong>Código fonte:</strong> <a 

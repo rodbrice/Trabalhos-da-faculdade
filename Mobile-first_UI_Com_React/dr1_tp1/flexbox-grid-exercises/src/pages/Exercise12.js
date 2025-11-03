@@ -1,27 +1,27 @@
 import React from 'react';
-import BackButton from '../BackButton';
-import './ExerciseStyles.css';
+import BackButton from '../components/BackButton';
+import Footer from '../components/Footer';
+import '../styles/ExerciseStyles.css';
 
-function Exercise5() {
+function Exercise12() {
   return (
     <div className="exercise-container">
       <div className="exercise-header">
-        <h1>Exercício 5: Flex-basis</h1>
+        <h1>Exercício 12: Centralização Completa</h1>
         <p className="exercise-description">
-          Container flexível com cinco itens onde o segundo item tem uma base (flex-basis) 
-          de 200px, enquanto os outros itens têm bases automáticas
+          Container flexível onde todos os itens são centralizados tanto 
+          horizontalmente quanto verticalmente no container
         </p>
         <BackButton />
       </div>
 
       <div className="demo-area">
         <div className="demo-title">Resultado:</div>
-        <div className="flex-container-5">
+        <div className="flex-container-12">
           <div className="flex-item">Item 1</div>
-          <div className="flex-item">Item 2 (200px)</div>
+          <div className="flex-item">Item 2</div>
           <div className="flex-item">Item 3</div>
           <div className="flex-item">Item 4</div>
-          <div className="flex-item">Item 5</div>
         </div>
       </div>
 
@@ -30,11 +30,10 @@ function Exercise5() {
         <pre>
 {`.flex-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
   gap: 15px;
-}
-
-.item-2 {
-  flex-basis: 200px;
 }`}
         </pre>
       </div>
@@ -42,4 +41,4 @@ function Exercise5() {
   );
 }
 
-export default Exercise5;
+export default Exercise12;

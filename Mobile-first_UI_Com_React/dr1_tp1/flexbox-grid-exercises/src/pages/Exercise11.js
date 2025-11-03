@@ -1,6 +1,7 @@
 import React from 'react';
-import BackButton from '../BackButton';
-import './ExerciseStyles.css';
+import BackButton from '../components/BackButton';
+import Footer from '../components/Footer';
+import '../styles/ExerciseStyles.css';
 
 function Exercise11() {
   return (

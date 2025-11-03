@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const exercises = [
   {
@@ -47,39 +48,53 @@ const exercises = [
       { id: 15, title: "Item ocupando 2 colunas e outro ocupando 2 linhas" },
       { id: 16, title: "Grid com colunas de larguras diferentes (1fr, 2fr, 1fr)" }
     ]
-  },
-  {
-    category: "Responsividade",
-    items: [
-      { id: "r1", title: "Layout Flexbox que se adapta desktop/mobile" },
-      { id: "r2", title: "Grid responsivo com auto-fit" },
-      { id: "r3", title: "Breakpoints múltiplos" },
-      { id: "r4", title: "Flex-wrap responsivo" }
-    ]
   }
 ];
 
-function Home() {
+function HomePage() {
   return (
-    <div className="home-container">
-      <h1 className="home-title">Flexbox & Grid Layout</h1>
-      <p className="home-subtitle">Exercícios práticos de CSS Flexbox e Grid</p>
-      
-      <div className="exercises-grid">
-        {exercises.map((category, categoryIndex) => (
-          <React.Fragment key={categoryIndex}>
-            <div className="category-title">{category.category}</div>
-            {category.items.map(exercise => (
-              <Link to={`/exercise/${exercise.id}`} key={exercise.id} className="exercise-card">
-                <div className="exercise-number">{exercise.id}</div>
-                <div className="exercise-title">{exercise.title}</div>
-              </Link>
-            ))}
-          </React.Fragment>
-        ))}
+    <div>
+      <div className="page-header">
+        <div className="container">
+          <h1>Mobile-first UI com React - DR1_TP1</h1>
+        </div>
       </div>
+      
+      <div className="container">
+        <div className="content-box">
+          <h2>Sobre este projeto</h2>
+          <p>
+            Esta aplicação contém os 16 exercícios práticos para o TP_01 de Mobile-first UI com React.
+          </p>
+          <p>
+            <strong>Código fonte:</strong> <a 
+              href="https://github.com/rodbrice/Trabalhos-da-faculdade/tree/master/Mobile-first_UI_Com_React/dr1_tp1/flexbox-grid-exercises" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: '#007bff', textDecoration: 'none' }}
+            >
+              Ver repositório no GitHub
+            </a>
+          </p>
+        </div>
+
+        <div className="exercises-grid">
+          {exercises.map((category, categoryIndex) => (
+            <React.Fragment key={categoryIndex}>
+              <div className="category-title">{category.category}</div>
+              {category.items.map(exercise => (
+                <Link to={`/exercise/${exercise.id}`} key={exercise.id} className="exercise-card">
+                  <div className="exercise-number">{exercise.id}</div>
+                  <div className="exercise-title">{exercise.title}</div>
+                </Link>
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
 
-export default Home;
+export default HomePage;
