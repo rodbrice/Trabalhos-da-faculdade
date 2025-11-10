@@ -65,6 +65,10 @@ const Exercise7 = () => {
         <Link to="/" className="back-button">← Voltar à página inicial</Link>
         
         <div className="user-profile">
+          <div style={{ fontSize: '1.4rem', marginBottom: '1rem', textAlign: 'center' }}>
+            {welcomeMessage}
+          </div>
+          
           <div style={{ fontSize: '1.2rem', lineHeight: '1.6', whiteSpace: 'pre-line' }}>
             {personalizedGreeting}
           </div>

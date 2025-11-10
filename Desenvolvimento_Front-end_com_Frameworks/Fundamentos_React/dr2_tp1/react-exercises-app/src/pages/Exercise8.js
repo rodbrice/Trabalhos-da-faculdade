@@ -83,6 +83,20 @@ const Exercise8 = () => {
             {description}
           </p>
         </div>
+        
+        <div className="content-box">
+          <h2>Mensagem Detalhada</h2>
+          <div style={{ 
+            background: '#f8f9fa', 
+            padding: '1.5rem', 
+            borderRadius: '8px', 
+            textAlign: 'center',
+            fontSize: '1.1rem',
+            border: '1px solid #e0e0e0'
+          }}>
+            {getDetailedMessage()}
+          </div>
+        </div>
       </div>
     </div>
   );

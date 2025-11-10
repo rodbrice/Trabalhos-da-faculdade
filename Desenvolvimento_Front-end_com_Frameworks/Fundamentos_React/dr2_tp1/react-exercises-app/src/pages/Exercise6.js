@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Exercise6 = () => {
   // Objeto para armazenar informações do livro
   const book = {
-    title: "JavaScript: The Definitive Guide",
+    title: "JavaScript - The Definitive Guide",
     author: "David Flanagan",
     year: 2020,
     pages: 706,
@@ -36,7 +36,7 @@ const Exercise6 = () => {
   const relatedBooks = [
     { title: "Eloquent JavaScript", author: "Marijn Haverbeke", year: 2018 },
     { title: "You Don't Know JS", author: "Kyle Simpson", year: 2015 },
-    { title: "JavaScript: The Good Parts", author: "Douglas Crockford", year: 2008 }
+    { title: "JavaScript - The Good Parts", author: "Douglas Crockford", year: 2008 }
   ];
 
   return (
