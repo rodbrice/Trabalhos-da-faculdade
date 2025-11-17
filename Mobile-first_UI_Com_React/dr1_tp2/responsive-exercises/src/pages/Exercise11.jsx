@@ -20,7 +20,7 @@ function Exercise11() {
         <div className="content-layout-11">
           <div className="image-section-11">
             <img 
-              src="https://via.placeholder.com/600x400/667eea/ffffff?text=Responsive+Design" 
+              src="https://mondoshop.com/cdn/shop/products/Cloonan_TheWitcher3_Var_Sm.jpg?v=1667683941" 
               alt="Design Responsivo" 
             />
           </div>

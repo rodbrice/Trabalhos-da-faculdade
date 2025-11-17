@@ -20,14 +20,14 @@ function Exercise1() {
         <picture className="responsive-picture">
           <source 
             media="(min-width: 992px)" 
-            srcSet="https://via.placeholder.com/1200x400/667eea/ffffff?text=Desktop+%28992px%2B%29" 
+            srcSet="https://img.freepik.com/free-photo/beautiful-view-sunset-sea_23-2148019892.jpg?size=626&ext=jpg" 
           />
           <source 
             media="(min-width: 576px)" 
-            srcSet="https://via.placeholder.com/800x300/764ba2/ffffff?text=Tablet+%28576px+-+991px%29" 
+            srcSet="https://media.istockphoto.com/id/1322104312/photo/freedom-chains-that-transform-into-birds-charge-concept.jpg?s=612x612&w=0&k=20&c=e2XUx498GotTLJn_62tPmsqj6vU48ZEkf0auXi6Ywh0=" 
           />
           <img 
-            src="https://via.placeholder.com/400x200/28a745/ffffff?text=Mobile+%28at%C3%A9+575px%29" 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdN7FlZR9ZpY_EETzEq4f38wgvGxhATfDfsA&s" 
             alt="Imagem responsiva" 
             style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
           />

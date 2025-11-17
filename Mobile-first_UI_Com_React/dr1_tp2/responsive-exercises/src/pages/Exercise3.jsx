@@ -30,7 +30,7 @@ function Exercise3() {
           {/* Foto circular */}
           <div className="profile-photo-3">
             <img 
-              src="https://via.placeholder.com/150/667eea/ffffff?text=JD" 
+              src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2011/10/31/20/48-John-McCarthy-AP.jpg" 
               alt="Profile" 
             />
           </div>

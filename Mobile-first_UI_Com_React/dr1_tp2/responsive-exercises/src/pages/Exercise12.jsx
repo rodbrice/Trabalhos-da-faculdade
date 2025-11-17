@@ -24,7 +24,7 @@ function Exercise12() {
           <main className="theme-content-12">
             <section className="benefit-card-12">
               <img 
-                src="https://via.placeholder.com/300x200/667eea/ffffff?text=Acessibilidade" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXl-gWCvDF5eLHMao-584wTM-4CZ2_3mDbDA&s" 
                 alt="Acessibilidade" 
                 className="benefit-image-12"
               />
@@ -37,7 +37,7 @@ function Exercise12() {
 
             <section className="benefit-card-12">
               <img 
-                src="https://via.placeholder.com/300x200/764ba2/ffffff?text=SEO" 
+                src="https://www.outlookmarketingsrv.com/wp-content/uploads/2020/12/SEO-2-1.jpg" 
                 alt="SEO" 
                 className="benefit-image-12"
               />
@@ -50,7 +50,7 @@ function Exercise12() {
 
             <section className="benefit-card-12">
               <img 
-                src="https://via.placeholder.com/300x200/f093fb/ffffff?text=Custo" 
+                src="https://oadministrador.com/wp-content/uploads/2024/07/AnyConv.com__Custo-beneficio-de-um-produto--1024x569.webp" 
                 alt="Custo-benefício" 
                 className="benefit-image-12"
               />

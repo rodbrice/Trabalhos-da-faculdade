@@ -18,7 +18,7 @@ function Exercise2() {
       <div className="demo-area">
         <div className="demo-title">Resultado - A imagem se ajusta automaticamente:</div>
         <img 
-          src="https://via.placeholder.com/1200x400/667eea/ffffff?text=Imagem+Responsiva+com+max-width" 
+          src="https://mondoshop.com/cdn/shop/products/Cloonan_TheWitcher3_Var_Sm.jpg?v=1667683941" 
           alt="Imagem fluída" 
           className="responsive-image"
         />

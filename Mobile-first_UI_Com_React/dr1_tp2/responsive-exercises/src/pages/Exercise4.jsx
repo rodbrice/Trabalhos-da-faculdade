@@ -48,7 +48,7 @@ function Exercise4() {
             <div className="image-content-4">
               <div className="profile-circle-4">
                 <img 
-                  src="https://via.placeholder.com/250/667eea/ffffff?text=John" 
+                  src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2011/10/31/20/48-John-McCarthy-AP.jpg" 
                   alt="Profile" 
                 />
               </div>
