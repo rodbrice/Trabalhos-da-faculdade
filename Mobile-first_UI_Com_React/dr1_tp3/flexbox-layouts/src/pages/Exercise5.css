@@ -1,0 +1,49 @@
+/* Estilos para o Exercício 5 */
+.ex5-demo-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 576px;
+  margin: 0 auto;
+}
+
+.header-ex5 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.header-ex5 h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-ex5 p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.ex5-content {
+  padding: 2rem 1rem;
+  min-height: 200px;
+  background: #f8f9fa;
+}
+
+.ex5-content p {
+  color: #666;
+  text-align: center;
+}
+
+.footer-ex5 {
+  background: #333;
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.footer-ex5 p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}

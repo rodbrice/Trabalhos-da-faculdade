@@ -1,0 +1,17 @@
+.content {
+  padding: 2rem;
+  background: #f8f9fa;
+  min-height: 300px;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.paragraph {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}

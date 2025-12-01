@@ -1,0 +1,74 @@
+.team-footer-ex16 {
+  background: #2d3748;
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.team-footer-ex16 h3 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.team-members-ex16 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.member-card-ex16 {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-ex16 {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.member-info-ex16 {
+  text-align: left;
+  flex: 1;
+}
+
+.member-info-ex16 h4 {
+  margin-bottom: 0.5rem;
+}
+
+.member-info-ex16 a {
+  color: #61dafb;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.member-info-ex16 a:hover {
+  text-decoration: underline;
+}
+
+.copyright-ex16 {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .team-members-ex16 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
