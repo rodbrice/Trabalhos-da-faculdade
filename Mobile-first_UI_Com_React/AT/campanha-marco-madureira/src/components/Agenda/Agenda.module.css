@@ -1,0 +1,179 @@
+/* Agenda - Mobile First */
+.agenda {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-primary);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  margin: var(--spacing-md) auto 0;
+  border-radius: var(--radius-full);
+}
+
+/* Grid de Eventos - Mobile: coluna única */
+.eventosGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Card de Evento */
+.eventoCard {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.eventoCard:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+}
+
+.eventoHeader {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.eventoTitulo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.eventoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.icon {
+  font-size: 1.125rem !important;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+/* Respeita preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .eventoCard {
+    transition: none;
+  }
+  
+  .eventoCard:hover {
+    transform: none;
+  }
+}
+
+/* Tablet - 576px */
+@media screen and (min-width: 576px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  /* Grid 2 colunas */
+  .eventosGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  .eventoCard {
+    padding: var(--spacing-lg);
+  }
+  
+  .eventoTitulo {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop - 768px */
+@media screen and (min-width: 768px) {
+  .agenda {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2.25rem;
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .eventosGrid {
+    gap: var(--spacing-xl);
+  }
+  
+  .eventoCard {
+    padding: var(--spacing-xl);
+  }
+  
+  .eventoInfo {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+  }
+  
+  .infoItem {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Desktop Grande - 992px */
+@media screen and (min-width: 992px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  
+  /* Grid 3 colunas */
+  .eventosGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .eventoInfo {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Desktop Extra Grande - 1200px */
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}

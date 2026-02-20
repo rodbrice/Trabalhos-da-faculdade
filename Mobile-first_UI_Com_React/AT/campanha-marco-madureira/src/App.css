@@ -1,0 +1,258 @@
+/* Reset e estilos base - Mobile First */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respeita preferência do usuário por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  /* Cores principais - Tema claro */
+  --primary-color: #2563eb;         /* Azul vibrante */
+  --primary-light: #60a5fa;         /* Azul claro */
+  --primary-dark: #1e40af;          /* Azul escuro */
+  --secondary-color: #f59e42;       /* Laranja suave */
+  --secondary-light: #fbbf24;       /* Amarelo-laranja */
+  --accent-color: #ef4444;          /* Vermelho destaque */
+
+  /* Cores de texto */
+  --text-primary: #22223b;          /* Azul escuro quase preto */
+  --text-secondary: #4a4e69;        /* Cinza azulado */
+  --text-light: #9a8c98;            /* Cinza claro */
+
+  /* Cores de fundo */
+  --bg-primary: #f8f9fa;            /* Quase branco */
+  --bg-secondary: #e9ecef;          /* Cinza muito claro */
+  --bg-tertiary: #dee2e6;           /* Cinza claro */
+
+  /* Cores de borda */
+  --border-color: #cdd2d4;          /* Cinza médio */
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Espaçamentos */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Tema escuro baseado na preferência do sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #60a5fa;         /* Azul claro */
+    --primary-light: #93c5fd;         /* Azul ainda mais claro */
+    --primary-dark: #1e293b;          /* Azul escuro quase preto */
+    --secondary-color: #fbbf24;       /* Amarelo-laranja */
+    --secondary-light: #fde68a;       /* Amarelo claro */
+    --accent-color: #f87171;          /* Vermelho suave */
+
+    --text-primary: #f8fafc;          /* Quase branco */
+    --text-secondary: #cbd5e1;        /* Cinza claro */
+    --text-light: #64748b;            /* Cinza azulado */
+
+    --bg-primary: #18181b;            /* Preto azulado */
+    --bg-secondary: #232336;          /* Azul escuro */
+    --bg-tertiary: #2d3142;           /* Azul/cinza escuro */
+
+    --border-color: #334155;          /* Cinza escuro */
+    
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container padrão */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Seções */
+.section {
+  padding: var(--spacing-2xl) 0;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  margin: var(--spacing-md) auto 0;
+  border-radius: var(--radius-full);
+}
+
+/* Imagens fluidas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+/* Botões base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+/* Media Queries para telas maiores */
+@media screen and (min-width: 576px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 17px;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    font-size: 18px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}

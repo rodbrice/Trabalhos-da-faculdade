@@ -1,0 +1,257 @@
+/* Header - Mobile First */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+  padding: var(--spacing-md);
+  transition: all var(--transition-normal);
+}
+
+.header.scrolled {
+  background: var(--primary-dark);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+  line-height: 1.2;
+  transition: transform var(--transition-fast);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.logoName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.logoSurname {
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.9;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Navegação Mobile */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: var(--primary-dark);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  transition: right var(--transition-normal);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.navOpen {
+  right: 0;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all var(--transition-normal);
+}
+
+.navOpen .navItem {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navOpen .navItem:nth-child(1) { transition-delay: 0.1s; }
+.navOpen .navItem:nth-child(2) { transition-delay: 0.15s; }
+.navOpen .navItem:nth-child(3) { transition-delay: 0.2s; }
+.navOpen .navItem:nth-child(4) { transition-delay: 0.25s; }
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  padding: var(--spacing-sm) 0;
+  display: block;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width var(--transition-normal);
+}
+
+.navLink:hover {
+  color: var(--secondary-color);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Menu Button */
+.menuButton {
+  display: flex !important;
+  z-index: 1001;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+/* Respeita preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .navItem,
+  .navLink::after,
+  .header,
+  .logo {
+    transition: none;
+  }
+}
+
+/* Tablet - 576px */
+@media screen and (min-width: 576px) {
+  .logoName {
+    font-size: 1.5rem;
+  }
+  
+  .logoSurname {
+    font-size: 1rem;
+  }
+  
+  .nav {
+    max-width: 350px;
+  }
+}
+
+/* Desktop - 768px */
+@media screen and (min-width: 768px) {
+  .header {
+    padding: var(--spacing-lg) var(--spacing-xl);
+  }
+  
+  .header.scrolled {
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+  
+  .logo {
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: baseline;
+  }
+  
+  .logoName {
+    font-size: 1.75rem;
+  }
+  
+  .logoSurname {
+    font-size: 1.125rem;
+  }
+  
+  /* Navegação Desktop */
+  .nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .navList {
+    flex-direction: row;
+    gap: var(--spacing-xl);
+  }
+  
+  .navItem {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .navLink {
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .menuButton {
+    display: none !important;
+  }
+  
+  .overlay {
+    display: none;
+  }
+}
+
+/* Desktop Grande - 992px */
+@media screen and (min-width: 992px) {
+  .logoName {
+    font-size: 2rem;
+  }
+  
+  .logoSurname {
+    font-size: 1.25rem;
+  }
+  
+  .navList {
+    gap: var(--spacing-2xl);
+  }
+  
+  .navLink {
+    font-size: 1.0625rem;
+  }
+}

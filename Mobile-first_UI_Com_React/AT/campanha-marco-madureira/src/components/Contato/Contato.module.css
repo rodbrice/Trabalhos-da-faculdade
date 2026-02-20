@@ -1,0 +1,236 @@
+/* Contato - Mobile First */
+/* Fundo mais claro para maior contraste */
+.contato {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-primary);
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  margin: var(--spacing-md) auto 0;
+  border-radius: var(--radius-full);
+}
+
+/* Layout Mobile - Vertical */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Seção de Informações */
+.infoSection {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Informações de Contato */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* Bloco de contato com destaque visual */
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  background: #fffbe9;
+  border: 1.5px solid var(--secondary-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(245, 158, 66, 0.10);
+  transition: box-shadow 0.2s;
+}
+.contactItem:hover {
+  box-shadow: 0 4px 16px rgba(245, 158, 66, 0.18);
+}
+
+
+.contactLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contactValue {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+a.contactValue {
+  color: var(--primary-color);
+  transition: color var(--transition-fast);
+}
+
+a.contactValue:hover {
+  color: var(--secondary-color);
+}
+
+/* Formulário */
+/* Formulário com fundo destacado */
+.form {
+  flex: 1 1 auto;
+  background: #f8fafc;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.10);
+  border: 1.5px solid var(--primary-light);
+}
+
+
+/* Tablet - 576px */
+@media screen and (min-width: 576px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .form {
+    padding: var(--spacing-xl);
+  }
+  
+  .contactInfo {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .contactItem {
+    flex: 1 1 calc(50% - var(--spacing-md));
+    max-width: 250px;
+  }
+}
+
+/* Desktop - 768px */
+@media screen and (min-width: 768px) {
+  .contato {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2.25rem;
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  /* Layout Horizontal */
+  .content {
+    flex-direction: row;
+    gap: var(--spacing-2xl);
+    align-items: stretch;
+  }
+  
+  .infoSection {
+    flex: 0 0 40%;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .form {
+    flex: 1 1 60%;
+  }
+  
+  .contactInfo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .contactItem {
+    flex: none;
+    max-width: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+  
+  .contactLabel {
+    min-width: 80px;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop Grande - 992px */
+@media screen and (min-width: 992px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  
+  .content {
+    gap: var(--spacing-3xl);
+  }
+  
+  .infoSection {
+    flex: 0 0 35%;
+  }
+  
+  .form {
+    flex: 1 1 65%;
+    padding: var(--spacing-2xl);
+  }
+  
+  .subtitle {
+    font-size: 1.75rem;
+  }
+  
+  .description {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Desktop Extra Grande - 1200px */
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
