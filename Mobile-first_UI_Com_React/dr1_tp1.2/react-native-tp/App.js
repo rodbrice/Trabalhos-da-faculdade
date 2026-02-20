@@ -1,6 +1,5 @@
-﻿import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+﻿import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
 import Task1Screen from './screens/Task1Screen';
 import Task2Screen from './screens/Task2Screen';
@@ -19,42 +18,93 @@ import Task14Screen from './screens/Task14Screen';
 import Task15Screen from './screens/Task15Screen';
 import Task16Screen from './screens/Task16Screen';
 
-const Stack = createNativeStackNavigator();
-
 export default function App() {
+  const [currentScreen, setCurrentScreen] = useState('Home');
+
+  const navigate = (screen) => {
+    setCurrentScreen(screen);
+  };
+
+  const goBack = () => {
+    setCurrentScreen('Home');
+  };
+
+  const renderScreen = () => {
+    const screenMap = {
+      'Home': <HomeScreen navigation={{ navigate }} />,
+      'Task1': <Task1Screen navigation={{ goBack }} />,
+      'Task2': <Task2Screen navigation={{ goBack }} />,
+      'Task3': <Task3Screen navigation={{ goBack }} />,
+      'Task4': <Task4Screen navigation={{ goBack }} />,
+      'Task5': <Task5Screen navigation={{ goBack }} />,
+      'Task6': <Task6Screen navigation={{ goBack }} />,
+      'Task7': <Task7Screen navigation={{ goBack }} />,
+      'Task8': <Task8Screen navigation={{ goBack }} />,
+      'Task9': <Task9Screen navigation={{ goBack }} />,
+      'Task10': <Task10Screen navigation={{ goBack }} />,
+      'Task11': <Task11Screen navigation={{ goBack }} />,
+      'Task12': <Task12Screen navigation={{ goBack }} />,
+      'Task13': <Task13Screen navigation={{ goBack }} />,
+      'Task14': <Task14Screen navigation={{ goBack }} />,
+      'Task15': <Task15Screen navigation={{ goBack }} />,
+      'Task16': <Task16Screen navigation={{ goBack }} />,
+    };
+
+    return screenMap[currentScreen] || screenMap['Home'];
+  };
+
+  const getTitle = () => {
+    if (currentScreen === 'Home') return 'React Native TP1.2';
+    return `Tarefa ${currentScreen.replace('Task', '')}`;
+  };
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: { backgroundColor: '#667eea' },
-          headerTintColor: '#fff',
-          headerTitleStyle: { fontWeight: 'bold' },
-        }}
-      >
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen}
-          options={{ title: 'React Native TP1.2' }}
-        />
-        <Stack.Screen name="Task1" component={Task1Screen} options={{ title: 'Tarefa 1' }} />
-        <Stack.Screen name="Task2" component={Task2Screen} options={{ title: 'Tarefa 2' }} />
-        <Stack.Screen name="Task3" component={Task3Screen} options={{ title: 'Tarefa 3' }} />
-        <Stack.Screen name="Task4" component={Task4Screen} options={{ title: 'Tarefa 4' }} />
-        <Stack.Screen name="Task5" component={Task5Screen} options={{ title: 'Tarefa 5' }} />
-        <Stack.Screen name="Task6" component={Task6Screen} options={{ title: 'Tarefa 6' }} />
-        <Stack.Screen name="Task7" component={Task7Screen} options={{ title: 'Tarefa 7' }} />
-        <Stack.Screen name="Task8" component={Task8Screen} options={{ title: 'Tarefa 8' }} />
-        <Stack.Screen name="Task9" component={Task9Screen} options={{ title: 'Tarefa 9' }} />
-        <Stack.Screen name="Task10" component={Task10Screen} options={{ title: 'Tarefa 10' }} />
-        <Stack.Screen name="Task11" component={Task11Screen} options={{ title: 'Tarefa 11' }} />
-        <Stack.Screen name="Task12" component={Task12Screen} options={{ title: 'Tarefa 12' }} />
-        <Stack.Screen name="Task13" component={Task13Screen} options={{ title: 'Tarefa 13' }} />
-        <Stack.Screen name="Task14" component={Task14Screen} options={{ title: 'Tarefa 14' }} />
-        <Stack.Screen name="Task15" component={Task15Screen} options={{ title: 'Tarefa 15' }} />
-        <Stack.Screen name="Task16" component={Task16Screen} options={{ title: 'Tarefa 16' }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      {currentScreen !== 'Home' && (
+        <View style={styles.header}>
+          <TouchableOpacity onPress={goBack} style={styles.backButton}>
+            <Text style={styles.backButtonText}>← Voltar</Text>
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>{getTitle()}</Text>
+          <View style={styles.placeholder} />
+        </View>
+      )}
+      {renderScreen()}
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    backgroundColor: '#667eea',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    paddingTop: 50,
+  },
+  backButton: {
+    padding: 5,
+  },
+  backButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  headerTitle: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    flex: 1,
+    textAlign: 'center',
+  },
+  placeholder: {
+    width: 60,
+  },
+});
 
