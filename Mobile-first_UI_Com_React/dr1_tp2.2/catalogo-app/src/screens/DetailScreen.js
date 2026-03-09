@@ -1,8 +1,10 @@
 ﻿// DetailScreen - Tela de detalhes do produto
-// Recebe o item via route.params e exibe todas as informações
+// Usa componentes InfoSection e Badge para organizar o conteúdo
 
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import InfoSection from '../components/InfoSection';
+import Badge from '../components/Badge';
 
 export default function DetailScreen({ route }) {
   const { item } = route.params;
@@ -19,8 +21,7 @@ export default function DetailScreen({ route }) {
         <Text style={styles.rating}>⭐ {item.rating}</Text>
       </View>
 
-      <View style={styles.box}>
-        <Text style={styles.label}>Preço</Text>
+      <InfoSection title="Preço">
         <Text style={styles.price}>{item.price}</Text>
         
         <View style={[styles.status, !item.inStock && styles.statusOut]}>
@@ -28,29 +29,24 @@ export default function DetailScreen({ route }) {
             {item.inStock ? '✓ Disponível em estoque' : '✗ Produto esgotado'}
           </Text>
         </View>
-      </View>
+      </InfoSection>
 
-      <View style={styles.box}>
-        <Text style={styles.sectionTitle}>Categoria</Text>
-        <View style={styles.categoryBadge}>
-          <Text style={styles.categoryText}>{item.category}</Text>
-        </View>
-      </View>
+      <InfoSection title="Categoria">
+        <Badge text={item.category} />
+      </InfoSection>
 
-      <View style={styles.box}>
-        <Text style={styles.sectionTitle}>Descrição</Text>
+      <InfoSection title="Descrição">
         <Text style={styles.text}>{item.description}</Text>
-      </View>
+      </InfoSection>
 
-      <View style={styles.box}>
-        <Text style={styles.sectionTitle}>Especificações</Text>
+      <InfoSection title="Especificações">
         {item.specifications.map((spec, index) => (
           <View key={index} style={styles.specRow}>
             <Text style={styles.bullet}>•</Text>
             <Text style={styles.specText}>{spec}</Text>
           </View>
         ))}
-      </View>
+      </InfoSection>
 
       <View style={styles.infoBox}>
         <Text style={styles.infoText}>
@@ -102,23 +98,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 20,
   },
-  box: {
-    backgroundColor: 'white',
-    margin: 15,
-    marginTop: 0,
-    padding: 20,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  label: {
-    fontSize: 14,
-    color: '#999',
-    marginBottom: 5,
-  },
   price: {
     fontSize: 32,
     fontWeight: 'bold',
@@ -134,24 +113,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f44336',
   },
   statusText: {
-    color: 'white',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 15,
-  },
-  categoryBadge: {
-    backgroundColor: '#667eea',
-    alignSelf: 'flex-start',
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  categoryText: {
     color: 'white',
     fontSize: 14,
     fontWeight: 'bold',
