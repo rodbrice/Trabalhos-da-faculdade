@@ -2,11 +2,11 @@
 // Stack Navigator com 2 telas: List e Detail
 
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import ListScreen from '../screens/ListScreen';
 import DetailScreen from '../screens/DetailScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function AppNavigator() {
   return (
