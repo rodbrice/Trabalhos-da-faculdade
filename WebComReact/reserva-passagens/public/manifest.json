@@ -1,0 +1,10 @@
+﻿{
+  "short_name": "Expresso Horizon",
+  "name": "Sistema de Reserva de Passagens",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff"
+}
+

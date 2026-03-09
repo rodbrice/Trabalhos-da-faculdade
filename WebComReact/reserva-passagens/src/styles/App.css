@@ -1,0 +1,538 @@
+﻿/* Exercício 14: Estilização com CSS puro — Padrão do projeto postagens-blog */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ─── Container ──────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+/* ─── Content Box ────────────────────────────────────────────── */
+.content-box {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.content-box h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* ─── Mensagens de Feedback ──────────────────────────────────── */
+/* Exercício 15 */
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+}
+
+.message.success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.message.warning {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Search Bar ─────────────────────────────────────────────── */
+/* Exercício 13 */
+.search-bar {
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* ─── List Header ────────────────────────────────────────────── */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.list-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.no-passagens {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+/* ─── Tabela de Passagens ────────────────────────────────────── */
+/* Exercício 14: Tabela ocupa toda a largura */
+.travel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.travel-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.travel-table th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.travel-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle;
+}
+
+.travel-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.travel-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.passagem-id {
+  color: #888;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  width: 60px;
+}
+
+.passagem-passageiro {
+  color: #333;
+  font-weight: 500;
+  min-width: 150px;
+}
+
+.passagem-assento {
+  min-width: 80px;
+}
+
+.assento-badge {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+}
+
+.passagem-origem,
+.passagem-destino {
+  color: #555;
+  min-width: 120px;
+}
+
+.passagem-data {
+  color: #666;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.passagem-status {
+  min-width: 100px;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.status-confirmado {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-pendente {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-cancelado {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.passagem-actions {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+/* Exercício 14: Botões com cores distintas */
+.btn-edit,
+.btn-delete {
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Exercício 14: Amarelo/Laranja para alterar */
+.btn-edit {
+  background-color: #ff9800;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #f57c00;
+  transform: translateY(-1px);
+}
+
+/* Exercício 14: Vermelho para cancelar */
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+/* ─── Formulário ─────────────────────────────────────────────── */
+/* Exercício 14: Formulário com espaçamento adequado */
+.ticket-form {
+  width: 100%;
+  max-width: 700px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.error-message {
+  display: block;
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.btn-cancel {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #5a6268;
+}
+
+/* ─── Botões Genéricos ───────────────────────────────────────── */
+.btn {
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-warning {
+  background-color: #ff9800;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Componente SeatCard ────────────────────────────────────── */
+.seat-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.25rem;
+  border: 2px solid transparent;
+}
+
+.seat-livre {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.seat-livre:hover {
+  background-color: #c3e6cb;
+  transform: scale(1.05);
+}
+
+.seat-ocupado {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+  cursor: not-allowed;
+}
+
+.seat-number {
+  font-weight: 700;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+.app-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: auto;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ─── Responsividade ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .content-box {
+    padding: 1.25rem;
+  }
+
+  .travel-table thead {
+    display: none;
+  }
+
+  .travel-table,
+  .travel-table tbody,
+  .travel-table tr,
+  .travel-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .travel-table tr {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: white;
+  }
+
+  .travel-table td {
+    border-bottom: none;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .passagem-id::before { content: 'ID: '; font-weight: 700; color: #666; }
+  .passagem-passageiro::before { content: 'Passageiro: '; font-weight: 700; color: #666; }
+  .passagem-assento::before { content: 'Assento: '; font-weight: 700; color: #666; }
+  .passagem-origem::before { content: 'Origem: '; font-weight: 700; color: #666; }
+  .passagem-destino::before { content: 'Destino: '; font-weight: 700; color: #666; }
+  .passagem-data::before { content: 'Data: '; font-weight: 700; color: #666; }
+  .passagem-status::before { content: 'Status: '; font-weight: 700; color: #666; }
+
+  .passagem-actions {
+    flex-wrap: wrap;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .btn-submit,
+  .btn-cancel {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.95rem;
+  }
+
+  .content-box {
+    padding: 1rem;
+  }
+}
+
+/* Fim do arquivo CSS */
+
