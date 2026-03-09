@@ -1,4 +1,4 @@
-﻿# TechStore - Catálogo de Eletrônicos
+﻿﻿# TechStore - Catálogo de Eletrônicos
 
 Aplicativo de catálogo desenvolvido para o TP2 de Mobile-first UI com React.
 
@@ -29,9 +29,21 @@ catalogo-app/
 │   ├── screens/
 │   │   ├── ListScreen.js      # Tela de lista
 │   │   └── DetailScreen.js    # Tela de detalhes
+│   ├── components/
+│   │   ├── ProductCard.js     # Card de produto (reutilizável)
+│   │   ├── InfoSection.js     # Seção de informações
+│   │   └── Badge.js           # Badge de categoria/status
 │   └── data/
 │       └── items.js           # Dados dos produtos
 ```
+
+## Componentes Reutilizáveis
+
+O projeto usa componentes para deixar o código mais organizado:
+
+- **ProductCard**: Card de produto usado na lista
+- **InfoSection**: Seção com título para organizar informações
+- **Badge**: Badge colorido para categorias e status
 
 ## Produtos no Catálogo
 
