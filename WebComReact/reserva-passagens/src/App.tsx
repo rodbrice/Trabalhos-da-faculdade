@@ -1,4 +1,6 @@
-﻿import React, { useState } from 'react';
+﻿      // Exercício 9: Adicionar nova passagem ao estado local
+      // Exercício 12: Atualização — substituir no estado pelo id
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TravelList from './components/TravelList';
@@ -6,9 +8,20 @@ import TicketForm from './components/TicketForm';
 import { Passagem, FeedbackMessage } from './types/types';
 import './styles/App.css';
 
-// Exercício 1: Sistema de Reserva de Passagens de Ônibus
+// DR4_TP3: Sistema de Reserva de Passagens de Ônibus com Roteamento
+
+const STORAGE_KEY = 'expresso-horizon-passagens';
 
 function App() {
+  // Exercício 11: Persistência com localStorage
+  const [passagens, setPassagens] = useState<Passagem[]>(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      return JSON.parse(saved);
+// Exercício 1: Sistema de Reserva de Passagens de Ônibus
+        assento: 12,
+        origem: 'São Paulo',
+        destino: 'Rio de Janeiro',
   // Exercício 8: Mock de Dados Iniciais
   const [passagens, setPassagens] = useState<Passagem[]>([
     {
@@ -39,47 +52,33 @@ function App() {
       status: 'confirmado',
     },
   ]);
+    const savedAuth = localStorage.getItem('expresso-horizon-auth');
+    return savedAuth === 'true';
+  });
 
+  // Exercício 11: Salvar no localStorage sempre que passagens mudar
+  useEffect(() => {
   // Exercício 12: Passagem sendo editada no momento
-  const [editingPassagem, setEditingPassagem] = useState<Passagem | null>(null);
+  }, [passagens]);
 
+  // Salvar estado de autenticação
+  useEffect(() => {
   // Exercício 15: Mensagem de feedback temporária
-  const [message, setMessage] = useState<FeedbackMessage | null>(null);
+  }, [isAuth]);
 
-  // Exercício 13: Termo de busca por destino
-  const [searchTerm, setSearchTerm] = useState<string>('');
-
-  // Exercício 15: Exibe mensagem temporária por 3 segundos
   const showFeedback = (type: FeedbackMessage['type'], text: string): void => {
-    setMessage({ type, text });
+  // Exercício 13: Termo de busca por destino
     setTimeout(() => setMessage(null), 3000);
   };
 
-  // Exercício 9: Adicionar ou atualizar passagem no estado
-  const handleSubmit = (passagem: Passagem): void => {
-    if (editingPassagem) {
-      // Exercício 12: Atualização — substituir no estado pelo id
-      setPassagens((prev) =>
-        prev.map((p) => (p.id === passagem.id ? passagem : p))
-      );
-      showFeedback('success', 'Alterações salvas com sucesso!');
-      setEditingPassagem(null);
-    } else {
-      // Exercício 9: Adicionar nova passagem ao estado local
-      setPassagens((prev) => [passagem, ...prev]);
-      showFeedback('success', 'Reserva confirmada com sucesso!');
-    }
-  };
-
-  // Exercício 11: Remover passagem pelo id
-  const handleDelete = (id: number): void => {
+  // Exercício 15: Exibe mensagem temporária por 3 segundos
     if (window.confirm('Deseja realmente cancelar esta reserva?')) {
       setPassagens((prev) => prev.filter((p) => p.id !== id));
-      showFeedback('success', 'Reserva cancelada!');
+      showFeedback('success', '🗑️ Reserva cancelada!');
     }
   };
 
-  // Exercício 12: Preencher formulário com dados da passagem a editar
+  // Editar passagem
   const handleEdit = (passagem: Passagem): void => {
     setEditingPassagem(passagem);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -89,47 +88,47 @@ function App() {
     setEditingPassagem(null);
   };
 
-  // Exercício 13: Filtrar passagens pelo termo de busca (destino)
+  // Filtrar passagens por destino
   const filteredPassagens = passagens.filter((passagem) =>
     passagem.destino.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Exercício 10: Obter lista de assentos ocupados
-  const assentosOcupados = passagens.map((p) => p.assento);
+  // Lista de assentos ocupados
+  // Exercício 9: Adicionar ou atualizar passagem no estado
+
+  // Toggle de autenticação
+  const handleToggleAuth = () => {
+    setIsAuth((prev) => {
+      const newAuth = !prev;
+      showFeedback('success', 'Alterações salvas com sucesso!');
+      return newAuth;
+    });
+  };
 
   return (
-    <div className="App">
-      {/* Exercício 3: Renderizar Header */}
+      showFeedback('success', 'Reserva confirmada com sucesso!');
+  // Exercício 11: Remover passagem pelo id
       <Header />
 
       <main className="container">
         {/* Exercício 15: Mensagens de feedback */}
         {message && (
-          <div className={`message ${message.type}`}>
+      showFeedback('success', 'Reserva cancelada!');
             {message.text}
           </div>
         )}
 
-        {/* Exercício 5 / 9 / 10 / 12: Formulário */}
+  // Exercício 12: Preencher formulário com dados da passagem a editar
         <TicketForm
           onSubmit={handleSubmit}
-          editingPassagem={editingPassagem}
+  // Exercício 13: Filtrar passagens pelo termo de busca (destino)
           onCancelEdit={handleCancelEdit}
           assentosOcupados={assentosOcupados}
         />
 
-        {/* Exercício 13: Campo de busca por destino */}
+  // Exercício 10: Obter lista de assentos ocupados
         <div className="search-bar">
           <input
-            type="search"
-            placeholder="Buscar por cidade de destino..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-
-        {/* Lista com contagem */}
-        <div className="list-header">
           <h2>
             {searchTerm
               ? `Resultados para "${searchTerm}" (${filteredPassagens.length})`
