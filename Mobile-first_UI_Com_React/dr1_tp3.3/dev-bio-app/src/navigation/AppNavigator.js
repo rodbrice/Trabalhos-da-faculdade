@@ -10,7 +10,7 @@ import ProjectDetailScreen from '../screens/ProjectDetailScreen';
 import ArticleWebViewScreen from '../screens/ArticleWebViewScreen';
 import TabNavigator from './TabNavigator';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
   const { theme } = useTheme();
