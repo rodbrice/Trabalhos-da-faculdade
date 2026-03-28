@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Bio Desenvolvedor",
+    "slug": "bio-desenvolvedor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#667eea"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#667eea"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
