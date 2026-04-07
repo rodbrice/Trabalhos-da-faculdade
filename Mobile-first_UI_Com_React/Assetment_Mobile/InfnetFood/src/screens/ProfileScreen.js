@@ -85,7 +85,7 @@ const ProfileScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.light.background },
   containerDark: { backgroundColor: colors.dark.background },
-  content: { padding: 16, paddingBottom: 32 },
+  content: { padding: 16, paddingBottom: 100 }, // Espaço para tab bar
   profileCard: { backgroundColor: colors.light.surface, borderRadius: 16, padding: 24, alignItems: 'center', borderWidth: 1, borderColor: colors.light.border, elevation: 2, marginBottom: 16 },
   profileCardDark: { backgroundColor: colors.dark.surface, borderColor: colors.dark.border },
   avatar: { width: 96, height: 96, borderRadius: 48, marginBottom: 12, backgroundColor: colors.primary + '20' },

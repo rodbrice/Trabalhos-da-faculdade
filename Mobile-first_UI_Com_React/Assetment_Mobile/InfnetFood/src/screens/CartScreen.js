@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: 17, fontWeight: '600', color: colors.light.text },
   headerTitleDark: { color: colors.dark.text },
   clearBtn: { paddingVertical: 8, paddingHorizontal: 14, minHeight: 36 },
-  list: { paddingHorizontal: 16, paddingBottom: 8 },
+  list: { paddingHorizontal: 16, paddingBottom: 180 }, // Espaço para footer fixo + tab bar
   footer: { padding: 16, backgroundColor: colors.light.surface, borderTopWidth: 1, borderTopColor: colors.light.border },
   footerDark: { backgroundColor: colors.dark.surface, borderTopColor: colors.dark.border },
   totalRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 },

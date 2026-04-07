@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   emptyTitleDark: { color: colors.dark.text },
   emptyText: { fontSize: 15, color: colors.light.textSecondary, textAlign: 'center', marginTop: 4 },
   emptyTextDark: { color: colors.dark.textSecondary },
-  list: { padding: 16, paddingBottom: 24 },
+  list: { padding: 16, paddingBottom: 100 }, // Espaço para tab bar
   header: { fontSize: 15, color: colors.light.textSecondary, marginBottom: 14 },
   headerDark: { color: colors.dark.textSecondary },
 });

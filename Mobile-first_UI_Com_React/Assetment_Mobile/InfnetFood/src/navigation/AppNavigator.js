@@ -96,14 +96,22 @@ const TabNavigator = () => {
         tabBarStyle: {
           backgroundColor: isDarkMode ? colors.dark.surface : colors.light.surface,
           borderTopColor: isDarkMode ? colors.dark.border : colors.light.border,
-          paddingBottom: 8,
-          paddingTop: 8,
-          height: 62,
+          borderTopWidth: 1,
+          paddingBottom: 16, // Mais espaço para não sobrepor botões do celular
+          paddingTop: 12,
+          height: 72, // Altura maior para melhor área de toque
+          elevation: 8,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -4 },
+          shadowOpacity: 0.1,
+          shadowRadius: 8,
+          position: 'absolute', // Garante que não sobreponha conteúdo
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: isDarkMode ? colors.dark.textSecondary : colors.light.textSecondary,
         headerShown: false,
-        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
+        tabBarLabelStyle: { fontSize: 12, fontWeight: '600', marginTop: 4 },
+        tabBarIconStyle: { marginTop: 4 },
       }}
     >
       <Tab.Screen
