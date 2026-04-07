@@ -36,28 +36,29 @@ const InputField = ({ label, value, onChangeText, placeholder, secureTextEntry, 
 };
 
 const styles = StyleSheet.create({
-  container: { marginBottom: 14 },
-  label: { fontSize: 14, fontWeight: '600', color: colors.light.text, marginBottom: 6 },
+  container: { marginBottom: 18 },
+  label: { fontSize: 15, fontWeight: '600', color: colors.light.text, marginBottom: 8 },
   labelDark: { color: colors.dark.text },
   input: {
     backgroundColor: colors.light.surface,
-    borderRadius: 10,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 15,
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    fontSize: 16,
     color: colors.light.text,
     borderWidth: 1,
     borderColor: colors.light.border,
+    minHeight: 52,
   },
   inputDark: {
     backgroundColor: colors.dark.surface,
     color: colors.dark.text,
     borderColor: colors.dark.border,
   },
-  textArea: { minHeight: 80, textAlignVertical: 'top' },
-  inputError: { borderColor: colors.danger },
+  textArea: { minHeight: 100, textAlignVertical: 'top', paddingTop: 14 },
+  inputError: { borderColor: colors.danger, borderWidth: 2 },
   inputDisabled: { opacity: 0.6 },
-  errorText: { color: colors.danger, fontSize: 12, marginTop: 4, marginLeft: 4 },
+  errorText: { color: colors.danger, fontSize: 13, marginTop: 6, marginLeft: 4, lineHeight: 18 },
 });
 
 export default InputField;

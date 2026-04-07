@@ -26,32 +26,32 @@ const CategoryCard = ({ category, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 16,
-    marginBottom: 16,
-    height: 140,
+    borderRadius: 18,
+    marginBottom: 18,
+    height: 160,
     overflow: 'hidden',
     backgroundColor: colors.light.surface,
-    elevation: 3,
+    elevation: 4,
     shadowColor: colors.light.shadow,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 1,
-    shadowRadius: 6,
+    shadowRadius: 8,
   },
   cardDark: { backgroundColor: colors.dark.surface },
-  image: { width: '100%', height: '100%', position: 'absolute' },
+  image: { width: '100%', height: '100%', position: 'absolute', resizeMode: 'cover' },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: 'rgba(0,0,0,0.4)',
   },
   content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    padding: 20,
   },
-  icon: { fontSize: 36, marginBottom: 4 },
-  name: { fontSize: 20, fontWeight: 'bold', color: '#ffffff', textAlign: 'center' },
-  description: { fontSize: 13, color: '#e0e0e0', textAlign: 'center', marginTop: 4 },
+  icon: { fontSize: 42, marginBottom: 8 },
+  name: { fontSize: 22, fontWeight: 'bold', color: '#ffffff', textAlign: 'center', letterSpacing: 0.5 },
+  description: { fontSize: 14, color: '#e8e8e8', textAlign: 'center', marginTop: 6, lineHeight: 18 },
 });
 
 export default CategoryCard;

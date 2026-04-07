@@ -87,7 +87,7 @@ const LoginScreen = () => {
           />
 
           <Text style={[styles.hint, isDarkMode && styles.hintDark]}>
-            Dica: use qualquer e-mail válido e senha com 3+ caracteres
+            Dica: use formato usuario@dominio.com e senha com 3+ caracteres
           </Text>
         </Animated.View>
       </ScrollView>
@@ -98,19 +98,19 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.light.background },
   containerDark: { backgroundColor: colors.dark.background },
-  content: { flexGrow: 1, justifyContent: 'center', padding: 24 },
-  logoContainer: { alignItems: 'center', marginBottom: 32 },
-  logoEmoji: { fontSize: 64 },
-  logoText: { fontSize: 32, fontWeight: 'bold', color: colors.primary, marginTop: 8 },
-  subtitle: { fontSize: 16, color: colors.light.textSecondary, marginTop: 4 },
+  content: { flexGrow: 1, justifyContent: 'center', padding: 24, paddingBottom: 40 },
+  logoContainer: { alignItems: 'center', marginBottom: 40 },
+  logoEmoji: { fontSize: 72 },
+  logoText: { fontSize: 36, fontWeight: 'bold', color: colors.primary, marginTop: 12 },
+  subtitle: { fontSize: 17, color: colors.light.textSecondary, marginTop: 6 },
   subtitleDark: { color: colors.dark.textSecondary },
-  form: { backgroundColor: colors.light.surface, borderRadius: 16, padding: 24, elevation: 3, shadowColor: colors.light.shadow, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 1, shadowRadius: 8, borderWidth: 1, borderColor: colors.light.border },
+  form: { backgroundColor: colors.light.surface, borderRadius: 20, padding: 28, elevation: 4, shadowColor: colors.light.shadow, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 1, shadowRadius: 12, borderWidth: 1, borderColor: colors.light.border },
   formDark: { backgroundColor: colors.dark.surface, borderColor: colors.dark.border },
-  formTitle: { fontSize: 20, fontWeight: 'bold', color: colors.light.text, textAlign: 'center', marginBottom: 20 },
+  formTitle: { fontSize: 22, fontWeight: 'bold', color: colors.light.text, textAlign: 'center', marginBottom: 24 },
   formTitleDark: { color: colors.dark.text },
-  errorBox: { backgroundColor: colors.danger + '15', borderRadius: 8, padding: 12, marginBottom: 8, borderLeftWidth: 3, borderLeftColor: colors.danger },
-  errorText: { color: colors.danger, fontSize: 14 },
-  hint: { fontSize: 12, color: colors.light.textSecondary, textAlign: 'center', marginTop: 16, fontStyle: 'italic' },
+  errorBox: { backgroundColor: colors.danger + '15', borderRadius: 10, padding: 14, marginBottom: 12, borderLeftWidth: 4, borderLeftColor: colors.danger },
+  errorText: { color: colors.danger, fontSize: 15, lineHeight: 20 },
+  hint: { fontSize: 13, color: colors.light.textSecondary, textAlign: 'center', marginTop: 20, fontStyle: 'italic', lineHeight: 18 },
   hintDark: { color: colors.dark.textSecondary },
 });
 

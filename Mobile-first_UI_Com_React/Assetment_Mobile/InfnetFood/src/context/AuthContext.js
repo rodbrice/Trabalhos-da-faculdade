@@ -25,19 +25,22 @@ export const AuthProvider = ({ children }) => {
   };
 
   /**
-   * Login mockado — aceita qualquer email/senha válidos
+   * Login mockado — aceita email/senha válidos
    * Retorna { success, error }
    */
   const login = async (email, password) => {
-    if (!email || !email.includes('@')) {
-      return { success: false, error: 'E-mail inválido. Informe um e-mail com @.' };
+    // Validação de email com regex: usuario@dominio.com
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!email || !emailRegex.test(email.trim())) {
+      return { success: false, error: 'E-mail inválido. Use o formato: usuario@dominio.com' };
     }
     if (!password || password.length < 3) {
       return { success: false, error: 'Senha deve ter pelo menos 3 caracteres.' };
     }
 
     const token = 'mock-token-' + Date.now();
-    const loggedUser = { ...initialUserData, email };
+    const loggedUser = { ...initialUserData, email: email.trim() };
     await saveAuth(token);
     await saveUser(loggedUser);
     setUser(loggedUser);

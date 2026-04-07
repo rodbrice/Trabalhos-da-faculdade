@@ -1,6 +1,7 @@
 ﻿// Exercício 10 e 15: Tela de Checkout - InfnetFood
 import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, Animated } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { useCart } from '../context/CartContext';
 import { useOrders } from '../context/OrderContext';
@@ -143,14 +144,16 @@ const CheckoutScreen = ({ navigation }) => {
       </ScrollView>
 
       {/* Footer */}
-      <Animated.View style={[styles.footer, isDarkMode && styles.footerDark, { transform: [{ scale: confirmAnim.interpolate({ inputRange: [0, 0.5, 1], outputRange: [1, 1.05, 1] }) }] }]}>
-        <Button
-          label={`Confirmar Pedido  •  R$ ${total.toFixed(2)}`}
-          onPress={handleConfirmOrder}
-          loading={submitting}
-          variant="success"
-        />
-      </Animated.View>
+      <SafeAreaView edges={['bottom']} style={[styles.footer, isDarkMode && styles.footerDark]}>
+        <Animated.View style={{ transform: [{ scale: confirmAnim.interpolate({ inputRange: [0, 0.5, 1], outputRange: [1, 1.05, 1] }) }] }}>
+          <Button
+            label={`Confirmar Pedido  •  R$ ${total.toFixed(2)}`}
+            onPress={handleConfirmOrder}
+            loading={submitting}
+            variant="success"
+          />
+        </Animated.View>
+      </SafeAreaView>
     </View>
   );
 };
@@ -158,25 +161,25 @@ const CheckoutScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.light.background },
   containerDark: { backgroundColor: colors.dark.background },
-  content: { padding: 16, paddingBottom: 24 },
-  section: { backgroundColor: colors.light.surface, borderRadius: 14, padding: 16, marginBottom: 16, borderWidth: 1, borderColor: colors.light.border },
+  content: { padding: 20, paddingBottom: 140 },
+  section: { backgroundColor: colors.light.surface, borderRadius: 16, padding: 20, marginBottom: 18, borderWidth: 1, borderColor: colors.light.border, elevation: 2 },
   sectionDark: { backgroundColor: colors.dark.surface, borderColor: colors.dark.border },
-  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: colors.light.text, marginBottom: 14 },
+  sectionTitle: { fontSize: 19, fontWeight: 'bold', color: colors.light.text, marginBottom: 16 },
   sectionTitleDark: { color: colors.dark.text },
-  summaryRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 6 },
-  summaryItem: { fontSize: 14, color: colors.light.text, flex: 1 },
+  summaryRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 },
+  summaryItem: { fontSize: 15, color: colors.light.text, flex: 1, lineHeight: 20 },
   summaryItemDark: { color: colors.dark.text },
-  summaryPrice: { fontSize: 14, color: colors.primary, fontWeight: '600' },
-  totalRow: { flexDirection: 'row', justifyContent: 'space-between', borderTopWidth: 1, borderTopColor: colors.light.border, paddingTop: 12, marginTop: 8 },
-  totalLabel: { fontSize: 17, fontWeight: 'bold', color: colors.light.text },
+  summaryPrice: { fontSize: 15, color: colors.primary, fontWeight: '600' },
+  totalRow: { flexDirection: 'row', justifyContent: 'space-between', borderTopWidth: 1, borderTopColor: colors.light.border, paddingTop: 14, marginTop: 10 },
+  totalLabel: { fontSize: 18, fontWeight: 'bold', color: colors.light.text },
   totalLabelDark: { color: colors.dark.text },
-  totalValue: { fontSize: 20, fontWeight: 'bold', color: colors.primary },
-  cepRow: { flexDirection: 'row', alignItems: 'flex-end' },
-  cepBtn: { marginLeft: 8, marginBottom: 14, minHeight: 48 },
-  row: { flexDirection: 'row' },
-  paymentBtn: { marginBottom: 8 },
-  errorText: { color: colors.danger, fontSize: 13, marginBottom: 8 },
-  footer: { padding: 16, backgroundColor: colors.light.surface, borderTopWidth: 1, borderTopColor: colors.light.border },
+  totalValue: { fontSize: 22, fontWeight: 'bold', color: colors.primary },
+  cepRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
+  cepBtn: { marginBottom: 18, minHeight: 52 },
+  row: { flexDirection: 'row', gap: 12 },
+  paymentBtn: { marginBottom: 10 },
+  errorText: { color: colors.danger, fontSize: 14, marginBottom: 10, lineHeight: 18 },
+  footer: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 8, backgroundColor: colors.light.surface, borderTopWidth: 1, borderTopColor: colors.light.border, elevation: 10, shadowColor: '#000', shadowOffset: { width: 0, height: -4 }, shadowOpacity: 0.15, shadowRadius: 10 },
   footerDark: { backgroundColor: colors.dark.surface, borderTopColor: colors.dark.border },
 });
 
