@@ -59,13 +59,21 @@ const ProfileScreen = ({ navigation }) => {
         <View style={styles.actions}>
           <Button
             label="⚙️ Configurações"
-            onPress={() => navigation.navigate('Settings')}
+            onPress={() => {
+              const parent = navigation.getParent()?.getParent();
+              if (parent) parent.navigate('Settings');
+              else navigation.navigate('Settings');
+            }}
             variant="outline"
             style={{ marginBottom: 10 }}
           />
           <Button
             label="📋 Meus Pedidos"
-            onPress={() => navigation.navigate('OrdersTab')}
+            onPress={() => {
+              const parent = navigation.getParent();
+              if (parent) parent.navigate('OrdersTab');
+              else navigation.navigate('OrdersTab');
+            }}
             variant="info"
           />
         </View>

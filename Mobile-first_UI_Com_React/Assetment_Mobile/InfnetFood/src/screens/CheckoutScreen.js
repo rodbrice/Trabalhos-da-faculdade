@@ -75,7 +75,7 @@ const CheckoutScreen = ({ navigation }) => {
       Alert.alert(
         '🎉 Pedido Confirmado!',
         'Seu pedido foi enviado com sucesso. Acompanhe em "Meus Pedidos".',
-        [{ text: 'Ver Pedidos', onPress: () => navigation.navigate('OrdersTab') }]
+        [{ text: 'Ver Pedidos', onPress: () => navigation.getParent()?.navigate('OrdersTab') || navigation.navigate('OrdersTab') }]
       );
     });
   };

@@ -1,15 +1,27 @@
 ﻿// Exercício 3: Página Inicial - Listagem de Categorias - InfnetFood
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { useCart } from '../context/CartContext';
 import CategoryCard from '../components/CategoryCard';
-import categories from '../data/categories';
+import categoriesData from '../data/categories';
 import colors from '../styles/colors';
 
 const HomeScreen = ({ navigation }) => {
   const { isDarkMode } = useTheme();
   const { itemCount } = useCart();
+
+  // Exercício 3: Simulação de loading ao carregar categorias (rubrica: progresso)
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCategories(categoriesData);
+      setLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <View style={[styles.container, isDarkMode && styles.containerDark]}>
@@ -21,7 +33,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
         <TouchableOpacity
           style={styles.cartBadge}
-          onPress={() => navigation.navigate('Cart')}
+          onPress={() => navigation.getParent()?.navigate('CartTab')}
           activeOpacity={0.7}
         >
           <Text style={styles.cartIcon}>🛒</Text>
@@ -43,18 +55,25 @@ const HomeScreen = ({ navigation }) => {
       {/* Categorias */}
       <Text style={[styles.sectionTitle, isDarkMode && styles.sectionTitleDark]}>Categorias</Text>
 
-      <FlatList
-        data={categories}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => (
-          <CategoryCard
-            category={item}
-            onPress={() => navigation.navigate('Products', { category: item })}
-          />
-        )}
-        contentContainerStyle={styles.list}
-        showsVerticalScrollIndicator={false}
-      />
+      {loading ? (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={colors.primary} />
+          <Text style={[styles.loadingText, isDarkMode && styles.loadingTextDark]}>Carregando categorias...</Text>
+        </View>
+      ) : (
+        <FlatList
+          data={categories}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => (
+            <CategoryCard
+              category={item}
+              onPress={() => navigation.navigate('Products', { category: item })}
+            />
+          )}
+          contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
     </View>
   );
 };
@@ -79,6 +98,9 @@ const styles = StyleSheet.create({
   sectionTitle: { fontSize: 20, fontWeight: 'bold', color: colors.light.text, marginHorizontal: 16, marginBottom: 12 },
   sectionTitleDark: { color: colors.dark.text },
   list: { paddingHorizontal: 16, paddingBottom: 20 },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 40 },
+  loadingText: { marginTop: 12, fontSize: 14, color: colors.light.textSecondary },
+  loadingTextDark: { color: colors.dark.textSecondary },
 });
 
 export default HomeScreen;
