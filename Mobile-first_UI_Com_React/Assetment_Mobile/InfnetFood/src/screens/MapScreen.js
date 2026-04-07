@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   map: { flex: 1 },
   sectionTitle: { fontSize: 18, fontWeight: 'bold', color: colors.light.text, marginHorizontal: 16, marginTop: 14, marginBottom: 10 },
   sectionTitleDark: { color: colors.dark.text },
-  list: { paddingHorizontal: 16, paddingBottom: 100 }, // Espaço para tab bar
+  list: { paddingHorizontal: 16, paddingBottom: 160 }, // Espaço para tab bar dobrada
 });
 
 export default MapScreen;

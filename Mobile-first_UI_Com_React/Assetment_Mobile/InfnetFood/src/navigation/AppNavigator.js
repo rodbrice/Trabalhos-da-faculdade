@@ -97,21 +97,21 @@ const TabNavigator = () => {
           backgroundColor: isDarkMode ? colors.dark.surface : colors.light.surface,
           borderTopColor: isDarkMode ? colors.dark.border : colors.light.border,
           borderTopWidth: 1,
-          paddingBottom: 16, // Mais espaço para não sobrepor botões do celular
-          paddingTop: 12,
-          height: 72, // Altura maior para melhor área de toque
-          elevation: 8,
+          paddingBottom: 50, // DOBRO do espaço - navbar bem alta
+          paddingTop: 18,
+          height: 120, // Navbar bem alta, longe dos botões
+          elevation: 14,
           shadowColor: '#000',
-          shadowOffset: { width: 0, height: -4 },
-          shadowOpacity: 0.1,
-          shadowRadius: 8,
-          position: 'absolute', // Garante que não sobreponha conteúdo
+          shadowOffset: { width: 0, height: -8 },
+          shadowOpacity: 0.25,
+          shadowRadius: 14,
+          position: 'absolute',
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: isDarkMode ? colors.dark.textSecondary : colors.light.textSecondary,
         headerShown: false,
-        tabBarLabelStyle: { fontSize: 12, fontWeight: '600', marginTop: 4 },
-        tabBarIconStyle: { marginTop: 4 },
+        tabBarLabelStyle: { fontSize: 12, fontWeight: '600', marginTop: 7 },
+        tabBarIconStyle: { marginTop: 10 },
       }}
     >
       <Tab.Screen

@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   bannerSub: { fontSize: 15, color: '#ffffffcc', marginTop: 6 },
   sectionTitle: { fontSize: 22, fontWeight: 'bold', color: colors.light.text, marginHorizontal: 20, marginBottom: 14, marginTop: 4 },
   sectionTitleDark: { color: colors.dark.text },
-  list: { paddingHorizontal: 20, paddingBottom: 100 }, // Espaço para tab bar (72px + margem)
+  list: { paddingHorizontal: 20, paddingBottom: 160 }, // Espaço para tab bar dobrada (120px + margem)
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 40 },
   loadingText: { marginTop: 12, fontSize: 14, color: colors.light.textSecondary },
   loadingTextDark: { color: colors.dark.textSecondary },

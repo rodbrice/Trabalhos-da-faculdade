@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   titleDark: { color: colors.dark.text },
   count: { fontSize: 14, color: colors.light.textSecondary, marginTop: 2 },
   countDark: { color: colors.dark.textSecondary },
-  list: { padding: 16, paddingBottom: 100 }, // Espaço para tab bar
+  list: { padding: 16, paddingBottom: 160 }, // Espaço para tab bar dobrada
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   loadingText: { marginTop: 12, fontSize: 14, color: colors.light.textSecondary },
   loadingTextDark: { color: colors.dark.textSecondary },
