@@ -27,8 +27,16 @@ npx expo start
 
 Escaneie o QR Code com o Expo Go ou execute em emulador.
 
-### Snack Expo
-O projeto pode ser migrado para o [Snack Expo](https://snack.expo.dev/) para facilitar a correção.
+### 📱 Snack Expo (Versão Online)
+
+Para rodar no **Snack Expo** (navegador), consulte o guia completo: [SNACK_MIGRATION.md](./SNACK_MIGRATION.md)
+
+**Resumo rápido**:
+1. Use o arquivo `package.snack.json` (renomeie para `package.json`)
+2. Remova as dependências: `babel-preset-expo`, `lottie-react-native`, `@lottiefiles/dotlottie-react`
+3. Faça upload no https://snack.expo.dev
+
+⚠️ **Nota**: Algumas funcionalidades (Lottie animations) têm limitações no Snack. Para experiência completa, rode localmente.
 
 ---
 
