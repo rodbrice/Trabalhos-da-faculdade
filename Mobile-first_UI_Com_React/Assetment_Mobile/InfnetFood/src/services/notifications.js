@@ -1,24 +1,30 @@
 ﻿// Exercício 14: Notificações locais simuladas - InfnetFood
-import * as Notifications from 'expo-notifications';
+let Notifications = null;
 
-// Configuração de handler para notificações em foreground
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-  }),
-});
+try {
+  Notifications = require('expo-notifications');
+  // Configuração de handler para notificações em foreground
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: true,
+      shouldSetBadge: false,
+    }),
+  });
+} catch (error) {
+  console.warn('expo-notifications não disponível:', error.message);
+}
 
 /**
  * Solicita permissão para enviar notificações
  */
 export const requestNotificationPermission = async () => {
   try {
+    if (!Notifications) return false;
     const { status } = await Notifications.requestPermissionsAsync();
     return status === 'granted';
   } catch (error) {
-    console.error('Erro ao solicitar permissão de notificação:', error);
+    console.warn('Permissão de notificação não disponível:', error.message);
     return false;
   }
 };
@@ -31,12 +37,13 @@ export const requestNotificationPermission = async () => {
  */
 export const scheduleNotification = async (title, body, seconds = 1) => {
   try {
+    if (!Notifications) return;
     await Notifications.scheduleNotificationAsync({
       content: { title, body, sound: true },
       trigger: { seconds },
     });
   } catch (error) {
-    console.error('Erro ao agendar notificação:', error);
+    console.warn('Notificação não agendada:', error.message);
   }
 };
 
