@@ -94,7 +94,7 @@ const CheckoutScreen = ({ navigation }) => {
               <Text style={styles.summaryPrice}>R$ {(item.price * item.quantity).toFixed(2)}</Text>
             </View>
           ))}
-          <View style={[styles.totalRow]}>
+          <View style={styles.totalRow}>
             <Text style={[styles.totalLabel, isDarkMode && styles.totalLabelDark]}>Total:</Text>
             <Text style={styles.totalValue}>R$ {total.toFixed(2)}</Text>
           </View>
